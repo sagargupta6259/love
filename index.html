@@ -13,6 +13,11 @@
     <!-- Background Canvas for Floating Hearts & Petals -->
     <canvas id="ambientCanvas"></canvas>
 
+    <!-- Background Audio Element -->
+    <audio id="bgMusic" loop preload="auto">
+        <source src="audio/romantic_song.mp3" type="audio/mpeg">
+    </audio>
+
     <!-- Audio Player Pill -->
     <div class="audio-control-bar" id="musicPlayer">
         <button id="toggleAudioBtn" class="audio-btn" aria-label="Play/Pause Music">
@@ -20,9 +25,9 @@
             <div class="sound-wave" id="soundWave">
                 <span></span><span></span><span></span><span></span>
             </div>
-            <span class="audio-label" id="audioLabel">Play Romantic Piano</span>
+            <span class="audio-label" id="audioLabel">Jaana Samjho Na ❤️</span>
         </button>
-        <span class="song-hint">Tap to play background melody</span>
+        <span class="song-hint">Tap anywhere to play song 🎶</span>
     </div>
 
     <!-- Main Container -->

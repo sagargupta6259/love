@@ -130,128 +130,60 @@ function initAmbientCanvas() {
 }
 
 /* ==========================================================
-   2. ROMANTIC AMBIENT SOUND ENGINE (Web Audio API)
-   Plays a soft, emotional acoustic piano & pad score
+   2. ROMANTIC SONG PLAYER ("Jaana Samjho Na ❤️")
    ========================================================== */
 function initAudioEngine() {
-    let audioCtx = null;
-    let isPlaying = false;
-    let timerId = null;
-
+    const audio = document.getElementById('bgMusic');
     const toggleBtn = document.getElementById('toggleAudioBtn');
     const musicIcon = document.getElementById('musicIcon');
     const soundWave = document.getElementById('soundWave');
     const audioLabel = document.getElementById('audioLabel');
 
-    if (!toggleBtn) return;
+    if (!toggleBtn || !audio) return;
 
-    // Emotional chord progression: Cmaj9 -> Am9 -> Fmaj7 -> Gsus4
-    // Tender, sentimental notes in Hz
-    const chords = [
-        // Cmaj9 (warm, hopeful)
-        [130.81, 196.00, 246.94, 293.66, 329.63, 493.88], // C3, G3, B3, D4, E4, B4
-        // Am9 (emotional, vulnerable)
-        [110.00, 164.81, 220.00, 261.63, 329.63, 392.00], // A2, E3, A3, C4, E4, G4
-        // Fmaj7 (deep love & devotion)
-        [87.31, 130.81, 174.61, 220.00, 261.63, 329.63],  // F2, C3, F3, A3, C4, E4
-        // Gsus4 / G6 (gentle resolution)
-        [98.00, 146.83, 196.00, 246.94, 293.66, 392.00]   // G2, D3, G3, B3, D4, G4
-    ];
+    let isPlaying = false;
 
-    let currentChordIndex = 0;
-    let noteIndex = 0;
-
-    function createAudioContext() {
-        const AudioContext = window.AudioContext || window.webkitAudioContext;
-        audioCtx = new AudioContext();
+    function playAudio() {
+        audio.play().then(() => {
+            isPlaying = true;
+            if (soundWave) soundWave.classList.add('playing');
+            if (musicIcon) musicIcon.textContent = '⏸️';
+            if (audioLabel) audioLabel.textContent = 'Jaana Samjho Na ❤️';
+        }).catch(err => {
+            console.log("Audio autoplay waiting for user click:", err);
+        });
     }
 
-    function playSoftNote(freq, time, duration = 3.5, volume = 0.12) {
-        if (!audioCtx) return;
-
-        const osc = audioCtx.createOscillator();
-        const gainNode = audioCtx.createGain();
-        const filter = audioCtx.createBiquadFilter();
-
-        // Warm lowpass filter for gentle piano-like timbre
-        filter.type = 'lowpass';
-        filter.frequency.setValueAtTime(900, time);
-        filter.frequency.exponentialRampToValueAtTime(320, time + duration);
-
-        osc.type = 'triangle';
-        osc.frequency.setValueAtTime(freq, time);
-
-        // Envelope: soft gentle attack, long warm decay
-        gainNode.gain.setValueAtTime(0.0001, time);
-        gainNode.gain.linearRampToValueAtTime(volume, time + 0.12);
-        gainNode.gain.exponentialRampToValueAtTime(0.0001, time + duration);
-
-        osc.connect(filter);
-        filter.connect(gainNode);
-        gainNode.connect(audioCtx.destination);
-
-        osc.start(time);
-        osc.stop(time + duration + 0.1);
-    }
-
-    function scheduleNotes() {
-        if (!isPlaying || !audioCtx) return;
-
-        const now = audioCtx.currentTime;
-        const currentChord = chords[currentChordIndex];
-
-        // Play root bass note warmly
-        playSoftNote(currentChord[0], now, 4.2, 0.15);
-
-        // Arpeggiate chord tones
-        for (let i = 1; i < currentChord.length; i++) {
-            playSoftNote(currentChord[i], now + (i * 0.45), 3.2, 0.08);
-        }
-
-        // Advance chord
-        currentChordIndex = (currentChordIndex + 1) % chords.length;
-
-        // Schedule next chord in 3.4 seconds
-        timerId = setTimeout(scheduleNotes, 3400);
-    }
-
-    function startMusic() {
-        if (!audioCtx) createAudioContext();
-        if (audioCtx.state === 'suspended') {
-            audioCtx.resume();
-        }
-
-        isPlaying = true;
-        soundWave.classList.add('playing');
-        musicIcon.textContent = '⏸️';
-        audioLabel.textContent = 'Music Playing ❤️';
-        scheduleNotes();
-    }
-
-    function stopMusic() {
+    function pauseAudio() {
+        audio.pause();
         isPlaying = false;
-        soundWave.classList.remove('playing');
-        musicIcon.textContent = '🎵';
-        audioLabel.textContent = 'Play Music';
-        if (timerId) clearTimeout(timerId);
+        if (soundWave) soundWave.classList.remove('playing');
+        if (musicIcon) musicIcon.textContent = '▶️';
+        if (audioLabel) audioLabel.textContent = 'Play Song';
     }
 
-    toggleBtn.addEventListener('click', () => {
+    toggleBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
         if (isPlaying) {
-            stopMusic();
+            pauseAudio();
         } else {
-            startMusic();
+            playAudio();
         }
     });
 
-    // Gentle auto-trigger on first user interaction if allowed
-    const autoPlayHandler = () => {
+    // Auto-trigger on first user interaction anywhere on screen
+    const triggerFirstPlay = () => {
         if (!isPlaying) {
-            startMusic();
+            playAudio();
         }
-        window.removeEventListener('click', autoPlayHandler);
+        window.removeEventListener('click', triggerFirstPlay);
+        window.removeEventListener('touchstart', triggerFirstPlay);
+        window.removeEventListener('scroll', triggerFirstPlay);
     };
-    window.addEventListener('click', autoPlayHandler, { once: true });
+
+    window.addEventListener('click', triggerFirstPlay, { once: true });
+    window.addEventListener('touchstart', triggerFirstPlay, { once: true });
+    window.addEventListener('scroll', triggerFirstPlay, { once: true });
 }
 
 /* ==========================================================
