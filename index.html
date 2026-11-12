@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For You, Jaan ❤️ | 12 November</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cinzel:wght@400;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Rozha+One&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Background Canvas for Floating Hearts & Petals -->
+    <canvas id="ambientCanvas"></canvas>
+
+    <!-- Audio Player Pill -->
+    <div class="audio-control-bar" id="musicPlayer">
+        <button id="toggleAudioBtn" class="audio-btn" aria-label="Play/Pause Music">
+            <span class="music-icon" id="musicIcon">🎵</span>
+            <div class="sound-wave" id="soundWave">
+                <span></span><span></span><span></span><span></span>
+            </div>
+            <span class="audio-label" id="audioLabel">Play Romantic Piano</span>
+        </button>
+        <span class="song-hint">Tap to play background melody</span>
+    </div>
+
+    <!-- Main Container -->
+    <main class="page-wrapper">
+
+        <!-- HERO SECTION -->
+        <header class="hero-section">
+            <div class="date-badge">
+                <span class="pulse-dot"></span>
+                <span>12 November 2020 &bull; 12 November 2026</span>
+            </div>
+
+            <h1 class="hero-title">
+                <span class="cursive-sub">Meri Pyaari</span>
+                <span class="main-name">Jaan ❤️</span>
+            </h1>
+
+            <p class="hero-subtitle">
+                "Jis 12 November ko humari kahani shuru hui thi,<br>
+                main nahi chahta ki wahi din humara aakhiri din bane…"
+            </p>
+
+            <!-- Memory Stats Card -->
+            <div class="stats-ribbon">
+                <div class="stat-item">
+                    <span class="stat-number">6</span>
+                    <span class="stat-label">Saal Ka Pyaar</span>
+                </div>
+                <div class="stat-divider">❤️</div>
+                <div class="stat-item">
+                    <span class="stat-number">2,192</span>
+                    <span class="stat-label">Dino Ka Safar</span>
+                </div>
+                <div class="stat-divider">❤️</div>
+                <div class="stat-item">
+                    <span class="stat-number">&infin;</span>
+                    <span class="stat-label">Anmol Yaadein</span>
+                </div>
+            </div>
+
+            <div class="scroll-down-hint">
+                <span>Ek baar dil se padh lena</span>
+                <div class="scroll-arrow">↓</div>
+            </div>
+        </header>
+
+        <!-- PHOTO MOMENTS SECTION -->
+        <section class="memories-section">
+            <div class="section-header">
+                <span class="section-tag">Humari Yaadein</span>
+                <h2 class="section-title">Woh Pal Jo Hamesha Dil Mein Rahenge</h2>
+                <div class="gold-divider"></div>
+            </div>
+
+            <div class="polaroid-grid">
+                <!-- Photo 1: Her Smile -->
+                <div class="polaroid-card tilt-left">
+                    <div class="polaroid-img-wrapper">
+                        <img src="images/her_smile.jpg" alt="Tumhari Pyaari Muskurahat" class="polaroid-img" loading="lazy">
+                        <span class="photo-badge">Favorite Smile ❤️</span>
+                    </div>
+                    <div class="polaroid-caption">
+                        <p class="caption-handwritten">"Tumhari yeh hasi… meri har subah aur har raat ka sukoon hai."</p>
+                    </div>
+                </div>
+
+                <!-- Photo 2: Video Call -->
+                <div class="polaroid-card tilt-straight">
+                    <div class="polaroid-img-wrapper">
+                        <img src="images/us_videocall.jpg" alt="Humara Video Call Moment" class="polaroid-img" loading="lazy">
+                        <span class="photo-badge">Hum Dono 🥺</span>
+                    </div>
+                    <div class="polaroid-caption">
+                        <p class="caption-handwritten">"Screen ke us paar se bhi tumne hamesha meri duniya roshan rakhi hai."</p>
+                    </div>
+                </div>
+
+                <!-- Photo 3: Her in Kurti -->
+                <div class="polaroid-card tilt-right">
+                    <div class="polaroid-img-wrapper">
+                        <img src="images/her_standing.jpg" alt="Meri Favourite Person" class="polaroid-img" loading="lazy">
+                        <span class="photo-badge">My Forever Person ✨</span>
+                    </div>
+                    <div class="polaroid-caption">
+                        <p class="caption-handwritten">"Kahin bhi rahoon, mere khayalon mein sirf aur sirf tum rehti ho."</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- THE HEARTFELT LETTER SECTION -->
+        <section class="letter-section">
+            <div class="letter-envelope">
+                <div class="letter-header">
+                    <div class="wax-seal">❤️</div>
+                    <span class="letter-date">12 November 2026</span>
+                    <h2 class="letter-heading">Mere Dil Ki Har Baat, Sirf Tumhare Liye</h2>
+                </div>
+
+                <div class="letter-body">
+                    <p class="salutation">Meri Jaan, ❤️🥺</p>
+
+                    <p class="letter-paragraph">
+                        Aaj <strong>12 November</strong> hai… aur mere liye ye sirf ek normal date nahi hai.
+                        Ye woh din hai jis din <strong>12 November 2020 ko tumne mujhe propose kiya tha</strong>. ❤️
+                    </p>
+
+                    <p class="letter-paragraph">
+                        Us din shayad hum dono ko nahi pata tha ki humari kahani itni door tak chalegi. Dheere-dheere tum meri aadat bani, meri khushi bani, meri favourite person bani aur phir pata hi nahi chala kab tum meri zindagi ka sabse anmol hissa ban gayi.
+                    </p>
+
+                    <div class="quote-highlight pain-highlight">
+                        <p>
+                            "Aur aaj isi din tum mujhse breakup karne ki baat kar rahi ho…<br>
+                            Jaan, sach bataun toh ye sochkar hi mera dil bahut heavy ho jata hai. 💔<br><br>
+                            <strong>Jis 12 November ko humari love story shuru hui thi, main nahi chahta ki wahi 12 November humari story ka aakhiri din ban jaaye.</strong> 🥺"
+                        </p>
+                    </div>
+
+                    <p class="letter-paragraph">
+                        Maine tumhe kabhi perfect banne ka promise nahi kiya tha, kyunki main khud perfect nahi hoon. Mujhse mistakes hui hongi, kabhi meri baaton se tum hurt hui hogi, kabhi meri wajah se tumhe bura laga hoga… aur un sab ke liye <strong>I'm really sorry, jaan.</strong> ❤️
+                    </p>
+
+                    <p class="letter-paragraph">
+                        Lekin ek cheez main dil par haath rakhkar keh sakta hoon—<br>
+                        <strong>maine kabhi tumhara bura nahi chaha.</strong><br>
+                        Maine hamesha tumhara bhala hi chaha hai.
+                    </p>
+
+                    <!-- Trust Callout -->
+                    <div class="trust-box">
+                        <div class="trust-icon">🕊️</div>
+                        <div class="trust-content">
+                            <h4>Ek Sach Jo Dil Se Nikal Raha Hai:</h4>
+                            <p>
+                                Jaan, maine tumse kabhi jhooth nahi bola. Jo tumse kaha, wahi sach tumhari didi se bhi kaha. Mujhe nahi pata tumhe kyun lag raha hai ki main jhooth bol raha hoon, lekin please meri baat ko ek baar aur dil se samajhne ki koshish karo.
+                            </p>
+                            <span class="trust-badge">Main sach bol raha hoon. ❤️</span>
+                        </div>
+                    </div>
+
+                    <p class="letter-paragraph">
+                        Tumhare liye meri feelings kabhi fake nahi thi. Tumhare saath bitaya hua har ek lamha mere liye bilkul real tha. Tumhari har chhoti si baat, tumhari care, tumhara gussa, tumhara pyaar—sab mere liye bohot special hai. 🥺❤️
+                    </p>
+
+                    <p class="letter-paragraph">
+                        Jaan, main tumse sirf isliye nahi keh raha ki breakup mat karo kyunki mujhe akela rehna padega. Main isliye keh raha hoon kyunki <strong>main hum dono ko itni aasani se khatam hota hua nahi dekh sakta.</strong>
+                    </p>
+
+                    <p class="letter-paragraph">
+                        Mujhe humari woh pehli meeting yaad hai. Mujhe woh din yaad hai jab tumne mujhe propose kiya tha. Mujhe woh saari chhoti-chhoti memories yaad hain jo shayad dusron ke liye aam hongi, lekin mere liye meri poori daulat hain. ❤️
+                    </p>
+
+                    <p class="letter-paragraph">
+                        Kabhi-kabhi sochta hoon ki agar main tumse mila hi nahi hota toh meri life kitni adhoori hoti… Aur phir lagta hai, <strong>tum meri life mein aayi, ye meri zindagi ki sabse khoobsurat cheez hai.</strong>
+                    </p>
+
+                    <div class="quote-highlight promise-highlight">
+                        <p>
+                            Please meri galtiyon ko meri poori personality mat samajhna.<br>
+                            Agar maine kahin galat kiya hai toh mujhe sudharne ka mauka do.<br>
+                            Agar meri kisi baat ne tumhe hurt kiya hai toh mujhe batao.<br>
+                            <strong>Main sununga. Main samjhunga. Main khud ko better karne ki poori koshish karunga.</strong>
+                        </p>
+                    </div>
+
+                    <p class="letter-paragraph call-to-heart">
+                        <strong>Bas ek baar humare liye ruk jao. 🥺❤️</strong>
+                    </p>
+
+                    <p class="letter-paragraph">
+                        Mujhe tumse koi perfect relationship nahi chahiye. Mujhe bas tum chahiye… tumhara saath chahiye… aur hum dono ko milkar apni har problem solve karne ka ek genuine chance chahiye.
+                    </p>
+
+                    <div class="date-comparison-box">
+                        <div class="date-comp-item">
+                            <span class="date-pill past">12 November 2020</span>
+                            <span class="date-desc">Tumne mujhe propose kiya tha ❤️</span>
+                        </div>
+                        <div class="date-arrow">⟶</div>
+                        <div class="date-comp-item">
+                            <span class="date-pill present">12 November 2026</span>
+                            <span class="date-desc">Please isse humara aakhiri din mat banne do 💔</span>
+                        </div>
+                    </div>
+
+                    <div class="letter-climax">
+                        <p>Jaan, agar mere andar sach mein tumhare liye pyaar hai, toh main aaj bhi tumhe wahi keh raha hoon—</p>
+                        <h3 class="love-declaration">
+                            I LOVE YOU. ❤️<br>
+                            <span>Bahut zyada. Shayad jitna main words mein kabhi samjha bhi nahi paunga.</span>
+                        </h3>
+                        <p class="closing-plea">
+                            Please koi bhi decision lene se pehle ek baar meri aankhon se humari poori 6 saal ki journey dekh lena. Shayad tumhe wahi ladka mil jaaye jo <strong>12 November 2020</strong> ko tumhare saamne khada tha aur tumhare pyaar ko apni poori duniya samajh baitha tha. 🥺❤️
+                        </p>
+                        <p class="final-words">
+                            <strong>Please jaan… humari kahani ko ek aur chance de do.<br>
+                            End nahi, chalo ek nayi beginning karte hain. ❤️</strong>
+                        </p>
+                        <p class="signature">
+                            I love you, jaan.<br>
+                            <span>Always & Forever. ❤️🥺</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- INTERACTIVE DECISION / REACH OUT SECTION -->
+        <section class="interactive-section">
+            <div class="action-card">
+                <span class="action-tag">Ek Chhota Sa Sawaal</span>
+                <h3 class="action-heading">Kya hum milkar ek aur koshish kar sakte hain?</h3>
+                <p class="action-desc">
+                    Mera koi pressure nahi hai… Bas dil chahta hai ki 6 saal ka pyaar itni khamoshi se na tute.
+                </p>
+
+                <div class="button-group">
+                    <button id="btnYes" class="btn btn-primary">
+                        <span class="btn-icon">❤️</span>
+                        <span>Haan, hum baat karenge</span>
+                    </button>
+                    <button id="btnNeedTime" class="btn btn-secondary">
+                        <span class="btn-icon">🕊️</span>
+                        <span>Mujhe thoda waqt chahiye</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- FOOTER -->
+        <footer class="page-footer">
+            <p>Made with all my heart &bull; 12 Nov 2020 to Forever ❤️</p>
+        </footer>
+
+    </main>
+
+    <!-- MODAL POPUPS -->
+    <div id="responseModal" class="modal-overlay" style="display: none;">
+        <div class="modal-box">
+            <button class="modal-close-btn" id="modalCloseBtn">&times;</button>
+            <div class="modal-icon" id="modalIcon">❤️</div>
+            <h3 class="modal-title" id="modalTitle">Heading</h3>
+            <p class="modal-message" id="modalMessage">Message content</p>
+            <div class="modal-actions" id="modalActions"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
